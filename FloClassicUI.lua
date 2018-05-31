@@ -7,6 +7,7 @@
 -------------------------------------------------------------------------------
 
 local VERSION = "8.0.1"
+local BAGS_WIDTH = (4*42+42)
 
 -------------------------------------------------------------------------------
 -- Variables
@@ -23,22 +24,37 @@ hooksecurefunc(StatusTrackingBarManager, "LayoutBar", function (self, bar, barWi
 		else		
 			bar:SetPoint("BOTTOM", MainMenuBarArtFrame, "TOP", 0, -17);
 		end
-		self:SetDoubleBarSize(bar, barWidth);
+		self:SetDoubleBarSize(bar, barWidth + BAGS_WIDTH * 2);
 	else 
 		bar:SetPoint("BOTTOM", MainMenuBarArtFrame, "TOP", 0, -17);
-		self:SetSingleBarSize(bar, barWidth);
+		self:SetSingleBarSize(bar, barWidth + BAGS_WIDTH * 2);
     end
 end);
 
 hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
-	MainMenuBar:ClearAllPoints(); 
-	MainMenuBarArtFrame.LeftEndCap:ClearAllPoints(); 
-	MainMenuBarArtFrame.RightEndCap:ClearAllPoints(); 
+	MainMenuBar:ClearAllPoints();
+	MainMenuBarArtFrame.LeftEndCap:ClearAllPoints();
+	MainMenuBarArtFrame.RightEndCap:ClearAllPoints();
 
     MainMenuBar:SetPoint("BOTTOM", MainMenuBar:GetParent(), 0, 0);
-	MainMenuBarArtFrame.LeftEndCap:SetPoint("BOTTOMLEFT", MainMenuBar, -98, 0); 
-    MainMenuBarArtFrame.RightEndCap:SetPoint("BOTTOMRIGHT", MainMenuBar, 98, 0);
+	MainMenuBarArtFrame.LeftEndCap:SetPoint("BOTTOMLEFT", MainMenuBar, -98 - BAGS_WIDTH, 0);
+    MainMenuBarArtFrame.RightEndCap:SetPoint("BOTTOMRIGHT", MainMenuBar, 98 + BAGS_WIDTH, 0);
     
+    MainMenuBarBackpackButton:SetParent(MainMenuBar);
+    MainMenuBarBackpackButton:ClearAllPoints();
+    MainMenuBarBackpackButton:SetPoint("RIGHT", MainMenuBar, BAGS_WIDTH, -3);
+    
+    for i = 0,3 do
+        _G["CharacterBag"..i.."Slot"]:SetParent(MainMenuBar);
+        _G["CharacterBag"..i.."Slot"]:SetSize(40, 40);
+        _G["CharacterBag"..i.."Slot"].IconBorder:SetSize(40, 40);
+    end
+    CharacterBag0Slot:ClearAllPoints();
+    CharacterBag0Slot:SetPoint("RIGHT", MainMenuBarBackpackButton, "LEFT", -4, 0);
+    MicroButtonAndBagsBar:Hide();
+
+    FloClassicUI_MainMenuBar_OnShow();
+
     if ( IsPlayerInWorld() ) then
         MultiBarBottomRightButton7:ClearAllPoints();
 
@@ -63,3 +79,21 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
         UIParent_ManageFramePositions();
     end
 end);
+
+function FloClassicUI_MainMenuBar_OnShow()
+	--UpdateMicroButtonsParent(MainMenuBarArtFrame);
+    MoveMicroButtons("LEFT", MainMenuBar, "LEFT", -BAGS_WIDTH - 10, -2, false);
+
+    MainMenuBarPerformanceBar:SetSize(28, 40);
+    for i=1, #MICRO_BUTTONS do
+        _G[MICRO_BUTTONS[i]]:SetSize(24, 36);
+        _G[MICRO_BUTTONS[i].."Flash"]:SetSize(29, 40);
+        if i ~= 1 then
+            local relativeTo;
+            _, relativeTo = _G[MICRO_BUTTONS[i]]:GetPoint(1);
+            _G[MICRO_BUTTONS[i]]:SetPoint("BOTTOMLEFT", relativeTo, "BOTTOMRIGHT", -4, 0);
+        end
+	end
+end
+
+MainMenuBar:HookScript("OnShow", FloClassicUI_MainMenuBar_OnShow);
