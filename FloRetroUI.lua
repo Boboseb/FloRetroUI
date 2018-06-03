@@ -105,3 +105,13 @@ function FloRetroUI_MainMenuBar_OnShow()
 end
 
 MainMenuBar:HookScript("OnShow", FloRetroUI_MainMenuBar_OnShow);
+
+-- Two columns right multibar
+SetCVar("multiBarRightHorizontalLayout", "1");
+
+-- Move the right bar toward the bottom
+hooksecurefunc("MultiActionBar_Update", function()
+    if ( SHOW_MULTI_ACTIONBAR_3 ) then
+		VerticalMultiBarsContainer:SetPoint("BOTTOMRIGHT", 0, MicroButtonAndBagsBar:GetTop() + 24);
+    end
+end);
