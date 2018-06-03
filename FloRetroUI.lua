@@ -80,7 +80,7 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
     end
 end);
 
-function FloClassicUI_MainMenuBar_OnShow()
+function FloRetroUI_MainMenuBar_OnShow()
 	--UpdateMicroButtonsParent(MainMenuBarArtFrame);
     MoveMicroButtons("LEFT", MainMenuBar, "LEFT", -BAGS_WIDTH - 10, -2, false);
 
@@ -96,4 +96,4 @@ function FloClassicUI_MainMenuBar_OnShow()
 	end
 end
 
-MainMenuBar:HookScript("OnShow", FloClassicUI_MainMenuBar_OnShow);
+MainMenuBar:HookScript("OnShow", FloRetroUI_MainMenuBar_OnShow);

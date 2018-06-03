@@ -1,9 +1,9 @@
 ## Interface: 80000
-## Title: FloClassicUI
+## Title: FloRetroUI
 ## Author: Floraline
 ## Notes: Try to restore a bit of classic feeling in the UI
 ## OptionalDeps:
 ## Dependencies:
 ## SavedVariables:
 ## SavedVariablesPerCharacter:
-FloClassicUI.lua
+FloRetroUI.lua
