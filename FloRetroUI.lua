@@ -14,6 +14,25 @@ local BAGS_WIDTH = (4*42+42)
 -------------------------------------------------------------------------------
 local _
 
+-- Create new textures for bags and microbuttons backdrop
+MainMenuBarArtFrameBackground.MicroButtonArt = MainMenuBarArtFrameBackground:CreateTexture();
+MainMenuBarArtFrameBackground.MicroButtonArt:SetSize(BAGS_WIDTH + 15, 45);
+MainMenuBarArtFrameBackground.MicroButtonArt:SetPoint("BOTTOMLEFT", MainMenuBar, -BAGS_WIDTH - 10, 0);
+MainMenuBarArtFrameBackground.MicroButtonArt:SetTexture(MicroButtonAndBagsBar.MicroBagBar:GetTexture());
+MainMenuBarArtFrameBackground.MicroButtonArt:SetTexCoord(275/1024, 572/1024, 213/256, 255/256);
+
+MainMenuBarArtFrameBackground.MultiBagsArt = MainMenuBarArtFrameBackground:CreateTexture();
+MainMenuBarArtFrameBackground.MultiBagsArt:SetSize(BAGS_WIDTH - 40, 45);
+MainMenuBarArtFrameBackground.MultiBagsArt:SetPoint("BOTTOMRIGHT", MainMenuBar, BAGS_WIDTH - 42, 0);
+MainMenuBarArtFrameBackground.MultiBagsArt:SetTexture(MicroButtonAndBagsBar.MicroBagBar:GetTexture());
+MainMenuBarArtFrameBackground.MultiBagsArt:SetTexCoord(395/1024, 525/1024, 178/256, 211/256);
+
+MainMenuBarArtFrameBackground.MainBagsArt = MainMenuBarArtFrameBackground:CreateTexture();
+MainMenuBarArtFrameBackground.MainBagsArt:SetSize(44, 45);
+MainMenuBarArtFrameBackground.MainBagsArt:SetPoint("BOTTOMRIGHT", MainMenuBar, BAGS_WIDTH + 2, 0);
+MainMenuBarArtFrameBackground.MainBagsArt:SetTexture(MicroButtonAndBagsBar.MicroBagBar:GetTexture());
+MainMenuBarArtFrameBackground.MainBagsArt:SetTexCoord(525/1024, 569/1024, 169/256, 211/256);
+
 -- Enlarge status bars to include bags and microbuttons
 -- and move them between the 2 rows of buttons, as it should
 hooksecurefunc(StatusTrackingBarManager, "LayoutBar", function (self, bar, barWidth, isTopBar, isDouble)
@@ -43,7 +62,7 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
     MainMenuBar:SetPoint("BOTTOM", MainMenuBar:GetParent(), 0, 0);
 	MainMenuBarArtFrame.LeftEndCap:SetPoint("BOTTOMLEFT", MainMenuBar, -98 - BAGS_WIDTH, 0);
     MainMenuBarArtFrame.RightEndCap:SetPoint("BOTTOMRIGHT", MainMenuBar, 98 + BAGS_WIDTH, 0);
-    
+
     -- Move the bags buttons
     MainMenuBarBackpackButton:SetParent(MainMenuBar);
     MainMenuBarBackpackButton:ClearAllPoints();
