@@ -53,7 +53,7 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
     CharacterBag0Slot:SetPoint("RIGHT", MainMenuBarBackpackButton, "LEFT", -4, 0);
     MicroButtonAndBagsBar:Hide();
 
-    FloClassicUI_MainMenuBar_OnShow();
+    FloRetroUI_MainMenuBar_OnShow();
 
     if ( IsPlayerInWorld() ) then
         MultiBarBottomRightButton7:ClearAllPoints();
