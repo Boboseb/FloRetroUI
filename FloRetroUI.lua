@@ -14,6 +14,8 @@ local BAGS_WIDTH = (4*42+42)
 -------------------------------------------------------------------------------
 local _
 
+-- Enlarge status bars to include bags and microbuttons
+-- and move them between the 2 rows of buttons, as it should
 hooksecurefunc(StatusTrackingBarManager, "LayoutBar", function (self, bar, barWidth, isTopBar, isDouble)
 		
 	bar:ClearAllPoints();
@@ -31,7 +33,9 @@ hooksecurefunc(StatusTrackingBarManager, "LayoutBar", function (self, bar, barWi
     end
 end);
 
+-- Move back the bags and micro buttons inside the main UI
 hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
+    -- Move left and right dragons further to make some room
 	MainMenuBar:ClearAllPoints();
 	MainMenuBarArtFrame.LeftEndCap:ClearAllPoints();
 	MainMenuBarArtFrame.RightEndCap:ClearAllPoints();
@@ -40,6 +44,7 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
 	MainMenuBarArtFrame.LeftEndCap:SetPoint("BOTTOMLEFT", MainMenuBar, -98 - BAGS_WIDTH, 0);
     MainMenuBarArtFrame.RightEndCap:SetPoint("BOTTOMRIGHT", MainMenuBar, 98 + BAGS_WIDTH, 0);
     
+    -- Move the bags buttons
     MainMenuBarBackpackButton:SetParent(MainMenuBar);
     MainMenuBarBackpackButton:ClearAllPoints();
     MainMenuBarBackpackButton:SetPoint("RIGHT", MainMenuBar, BAGS_WIDTH, -3);
@@ -51,10 +56,12 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
     end
     CharacterBag0Slot:ClearAllPoints();
     CharacterBag0Slot:SetPoint("RIGHT", MainMenuBarBackpackButton, "LEFT", -4, 0);
-    MicroButtonAndBagsBar:Hide();
 
+    -- Move the microbuttons
+    MicroButtonAndBagsBar:Hide();
     FloRetroUI_MainMenuBar_OnShow();
 
+    -- Move the status bars
     if ( IsPlayerInWorld() ) then
         MultiBarBottomRightButton7:ClearAllPoints();
 
@@ -80,6 +87,7 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
     end
 end);
 
+-- Move the microbuttons
 function FloRetroUI_MainMenuBar_OnShow()
 	--UpdateMicroButtonsParent(MainMenuBarArtFrame);
     MoveMicroButtons("LEFT", MainMenuBar, "LEFT", -BAGS_WIDTH - 10, -2, false);
