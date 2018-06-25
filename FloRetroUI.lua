@@ -145,9 +145,6 @@ end
 
 MainMenuBar:HookScript("OnShow", FloRetroUI_MainMenuBar_OnShow);
 
--- Two columns right multibar
-SetCVar("multiBarRightHorizontalLayout", "1");
-
 -- Move the right bar toward the bottom
 hooksecurefunc("MultiActionBar_Update", function()
     if InCombatLockdown() then return end
