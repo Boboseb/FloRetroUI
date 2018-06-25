@@ -129,18 +129,31 @@ function FloRetroUI_MainMenuBar_OnShow()
 
     if InCombatLockdown() then return end
 
-    MoveMicroButtons("LEFT", MainMenuBarArtFrame, "LEFT", -BAGS_WIDTH - 10, -12, false);
-
-    MainMenuBarPerformanceBar:SetSize(28, 40);
-    for i=1, #MICRO_BUTTONS do
-        _G[MICRO_BUTTONS[i]]:SetSize(24, 36);
-        _G[MICRO_BUTTONS[i].."Flash"]:SetSize(29, 40);
-        if i ~= 1 then
-            local relativeTo;
-            _, relativeTo = _G[MICRO_BUTTONS[i]]:GetPoint(1);
-            _G[MICRO_BUTTONS[i]]:SetPoint("BOTTOMLEFT", relativeTo, "BOTTOMRIGHT", -4, 0);
+    if OverrideActionBar:IsVisible() then
+        MainMenuBarPerformanceBar:SetSize(32, 40);
+        for i=1, #MICRO_BUTTONS do
+            _G[MICRO_BUTTONS[i]]:SetSize(28, 36);
+            _G[MICRO_BUTTONS[i].."Flash"]:SetSize(32, 40);
+            if i ~= 1 and MICRO_BUTTONS[i] ~= "LFDMicroButton" then
+                local relativeTo;
+                _, relativeTo = _G[MICRO_BUTTONS[i]]:GetPoint(1);
+                _G[MICRO_BUTTONS[i]]:SetPoint("BOTTOMLEFT", relativeTo, "BOTTOMRIGHT", -2, 0);
+            end
         end
-	end
+    else
+        MoveMicroButtons("LEFT", MainMenuBarArtFrame, "LEFT", -BAGS_WIDTH - 10, -12, false);
+
+        MainMenuBarPerformanceBar:SetSize(28, 40);
+        for i=1, #MICRO_BUTTONS do
+            _G[MICRO_BUTTONS[i]]:SetSize(24, 36);
+            _G[MICRO_BUTTONS[i].."Flash"]:SetSize(28, 40);
+            if i ~= 1 then
+                local relativeTo;
+                _, relativeTo = _G[MICRO_BUTTONS[i]]:GetPoint(1);
+                _G[MICRO_BUTTONS[i]]:SetPoint("BOTTOMLEFT", relativeTo, "BOTTOMRIGHT", -4, 0);
+            end
+        end
+    end
 end
 
 MainMenuBar:HookScript("OnShow", FloRetroUI_MainMenuBar_OnShow);
