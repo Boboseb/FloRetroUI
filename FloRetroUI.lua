@@ -19,19 +19,19 @@ MainMenuBarArtFrameBackground.MicroButtonArt = MainMenuBarArtFrameBackground:Cre
 MainMenuBarArtFrameBackground.MicroButtonArt:SetSize(BAGS_WIDTH + 15, 46);
 MainMenuBarArtFrameBackground.MicroButtonArt:SetPoint("BOTTOMLEFT", MainMenuBarArtFrame, -BAGS_WIDTH - 10, -10);
 MainMenuBarArtFrameBackground.MicroButtonArt:SetTexture(MicroButtonAndBagsBar.MicroBagBar:GetTexture());
-MainMenuBarArtFrameBackground.MicroButtonArt:SetTexCoord(347/1024, 644/1024, 212/256, 255/256);
+MainMenuBarArtFrameBackground.MicroButtonArt:SetTexCoord(245/1024, 542/1024, 212/256, 255/256);
 
 MainMenuBarArtFrameBackground.MultiBagsArt = MainMenuBarArtFrameBackground:CreateTexture();
 MainMenuBarArtFrameBackground.MultiBagsArt:SetSize(BAGS_WIDTH - 40, 46);
 MainMenuBarArtFrameBackground.MultiBagsArt:SetPoint("BOTTOMRIGHT", MainMenuBarArtFrame, BAGS_WIDTH - 42, -10);
 MainMenuBarArtFrameBackground.MultiBagsArt:SetTexture(MicroButtonAndBagsBar.MicroBagBar:GetTexture());
-MainMenuBarArtFrameBackground.MultiBagsArt:SetTexCoord(467/1024, 597/1024, 177/256, 211/256);
+MainMenuBarArtFrameBackground.MultiBagsArt:SetTexCoord(365/1024, 495/1024, 177/256, 211/256);
 
 MainMenuBarArtFrameBackground.MainBagsArt = MainMenuBarArtFrameBackground:CreateTexture();
 MainMenuBarArtFrameBackground.MainBagsArt:SetSize(44, 46);
 MainMenuBarArtFrameBackground.MainBagsArt:SetPoint("BOTTOMRIGHT", MainMenuBarArtFrame, BAGS_WIDTH + 2, -10);
 MainMenuBarArtFrameBackground.MainBagsArt:SetTexture(MicroButtonAndBagsBar.MicroBagBar:GetTexture());
-MainMenuBarArtFrameBackground.MainBagsArt:SetTexCoord(597/1024, 641/1024, 168/256, 211/256);
+MainMenuBarArtFrameBackground.MainBagsArt:SetTexCoord(495/1024, 539/1024, 168/256, 211/256);
 
 -- Enlarge status bars to include bags and microbuttons
 -- and move them between the 2 rows of buttons, as it should
