@@ -88,7 +88,7 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
     for i = 0,3 do
         _G["CharacterBag"..i.."Slot"]:SetParent(MainMenuBarArtFrame);
         _G["CharacterBag"..i.."Slot"]:SetSize(40, 40);
-        _G["CharacterBag"..i.."Slot"].IconBorder:SetSize(40, 40);
+        _G["CharacterBag"..i.."Slot"].IconBorder:SetSize(38, 38);
     end
     CharacterBag0Slot:ClearAllPoints();
     CharacterBag0Slot:SetPoint("RIGHT", MainMenuBarBackpackButton, "LEFT", -4, 0);
@@ -127,8 +127,6 @@ end);
 -- Move the microbuttons
 function FloRetroUI_MainMenuBar_OnShow()
 
-    if InCombatLockdown() then return end
-
     if OverrideActionBar:IsVisible() then
         MainMenuBarPerformanceBar:SetSize(32, 40);
         for i=1, #MICRO_BUTTONS do
@@ -141,7 +139,7 @@ function FloRetroUI_MainMenuBar_OnShow()
             end
         end
     else
-        MoveMicroButtons("LEFT", MainMenuBarArtFrame, "LEFT", -BAGS_WIDTH - 10, -12, false);
+        MoveMicroButtons("LEFT", MainMenuBarArtFrame, "LEFT", -BAGS_WIDTH - 8, -12, false);
 
         MainMenuBarPerformanceBar:SetSize(28, 40);
         for i=1, #MICRO_BUTTONS do
