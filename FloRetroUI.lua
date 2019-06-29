@@ -70,8 +70,8 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
 
     MainMenuBarArtFrame:ClearAllPoints();
     if ( StatusTrackingBarManager:GetNumberVisibleBars() == 2 ) then 
-        MainMenuBarArtFrame:SetPoint("TOPLEFT", MainMenuBar, 0, 10 - 17);
-        MainMenuBarArtFrame:SetPoint("BOTTOMRIGHT", MainMenuBar, 0, 10 - 17);
+        MainMenuBarArtFrame:SetPoint("TOPLEFT", MainMenuBar, 0, 10 - 19);
+        MainMenuBarArtFrame:SetPoint("BOTTOMRIGHT", MainMenuBar, 0, 10 - 19);
 	elseif ( StatusTrackingBarManager:GetNumberVisibleBars() == 1 ) then
         MainMenuBarArtFrame:SetPoint("TOPLEFT", MainMenuBar, 0, 10 - 14);
         MainMenuBarArtFrame:SetPoint("BOTTOMRIGHT", MainMenuBar, 0, 10 - 14);
@@ -110,8 +110,8 @@ hooksecurefunc(MainMenuBar, "SetPositionForStatusBars", function ()
             MultiBarBottomLeft:SetPoint("BOTTOMLEFT", ActionButton1, "TOPLEFT", 0, 27);
             MultiBarBottomRightButton7:SetPoint("BOTTOMLEFT", MultiBarBottomRightButton1, "TOPLEFT", 0, 27);
         elseif ( StatusTrackingBarManager:GetNumberVisibleBars() == 1 ) then
-            MultiBarBottomLeft:SetPoint("BOTTOMLEFT", ActionButton1, "TOPLEFT", 0, 24);
-            MultiBarBottomRightButton7:SetPoint("BOTTOMLEFT", MultiBarBottomRightButton1, "TOPLEFT", 0, 24);
+            MultiBarBottomLeft:SetPoint("BOTTOMLEFT", ActionButton1, "TOPLEFT", 0, 22);
+            MultiBarBottomRightButton7:SetPoint("BOTTOMLEFT", MultiBarBottomRightButton1, "TOPLEFT", 0, 22);
        else 
             MultiBarBottomLeft:SetPoint("BOTTOMLEFT", ActionButton1, "TOPLEFT", 0, 13);
             MultiBarBottomRightButton7:SetPoint("BOTTOMLEFT", MultiBarBottomRightButton1, "TOPLEFT", 0, 13);
