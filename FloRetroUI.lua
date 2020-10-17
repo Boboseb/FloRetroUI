@@ -128,7 +128,6 @@ end);
 function FloRetroUI_MainMenuBar_OnShow()
 
     if OverrideActionBar:IsVisible() then
-        MainMenuBarPerformanceBar:SetSize(32, 40);
         for i=1, #MICRO_BUTTONS do
             _G[MICRO_BUTTONS[i]]:SetSize(28, 36);
             _G[MICRO_BUTTONS[i].."Flash"]:SetSize(32, 40);
@@ -141,7 +140,6 @@ function FloRetroUI_MainMenuBar_OnShow()
     else
         MoveMicroButtons("LEFT", MainMenuBarArtFrame, "LEFT", -BAGS_WIDTH - 8, -12, false);
 
-        MainMenuBarPerformanceBar:SetSize(28, 40);
         for i=1, #MICRO_BUTTONS do
             _G[MICRO_BUTTONS[i]]:SetSize(24, 36);
             _G[MICRO_BUTTONS[i].."Flash"]:SetSize(28, 40);
