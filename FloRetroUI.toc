@@ -1,4 +1,4 @@
-## Interface: 90105
+## Interface: 90205
 ## Title: FloRetroUI
 ## Author: Floraline
 ## Notes: Try to restore a bit of classic feeling in the UI
